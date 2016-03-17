@@ -77,7 +77,7 @@ docker run -d -p 8880:8880 --link discovery:discovery --name service-1 apexitsys
 docker run -d -p 8881:8880 --link discovery:discovery --name service-2 apexitsystems/service
 
 # Client container
-docker run -d -p 8890:8890 --link discovery:discovery service:service --name client apexitsystems/client-1
+docker run -d -p 8890:8890 --link discovery:discovery service:service --name client apexitsystems/client
 ```
 
 Note that the discovery container is registering its hostname "-h discovery", so the other services can find it.

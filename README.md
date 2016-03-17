@@ -30,7 +30,7 @@ This is one plugin configuration I used:
 	        </plugin>
 ```
 
-I work on a Windows 10 machine with VirtualBox. Due to this configuration, I faced a problem where some required system variables have not been properly set, so I had to set them manually. Those are the shell commands I used on my command line:
+I work on an Windows 10 machine with VirtualBox. Due to this configuration, I faced a problem where some required system variables have not been properly set, so I had to set them manually. Those are the shell commands I used on my command line:
 ```sh
 set DOCKER_HOST=tcp://192.168.99.100:2376
 set DOCKER_MACHINE_NAME=default

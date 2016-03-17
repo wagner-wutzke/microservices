@@ -43,6 +43,22 @@ After setting these system variables, I have been able to build the project jar 
 mvn clean package docker:build
 ```
 
+## Running the docker containers
+There are two possibilities to start the containers. First one is to use a Docker Compose file for starting all three services together and linking them. The second one is to start every single one manualy with a docker command.
+
+For the second approach, here are the Docker commands:
+```sh
+docker run -d -p 8761:8761 -h discovery --name discovery apexitsystems/discovery
+
+# Service container - it is being replicated
+docker run -d -p 8880:8880 --link discovery:discovery --name service-1 apexitsystems/service
+docker run -d -p 8881:8880 --link discovery:discovery --name service-2 apexitsystems/service
+
+# Client container - it is being replicated
+docker run -d -p 8890:8890 --link discovery:discovery service:service --name client apexitsystems/client-1
+docker run -d -p 8891:8890 --link discovery:discovery service:service --name client apexitsystems/client-2
+```
+
 ## Helpful Docker commands
 - Run docker bash
 ```sh

@@ -27,7 +27,7 @@ Calling this URL makes this service to make a discovery call to the _service_ se
 
 
 ## Building the containers with the Docker Maven Plugin
-In order to build the Docker image, the Docker Machine must be running and connected to the Docker Host. I installed [Docker Toolbox][toolbox] in my Windows 10 machine.
+In order to build the Docker image, the Docker Machine must be running and connected to the Docker Host. I installed [Docker Toolbox][toolbox] in my Windows 10 machine. It installs a VirtualBox, configures it entirely with a Docker Hub image in it, and installs the Docker Machine.
 
 The Docker Maven Plugin makes ones life easier, when changes in the service implementation are made constantly and re-build the docker image has to be done several times.
 
@@ -52,7 +52,7 @@ This is one plugin configuration I used:
 	        </plugin>
 ```
 
-I work on an Windows 10 machine with VirtualBox. Due to this configuration, I faced a problem where some required system variables have not been properly set, so I had to set them manually. Those are the shell commands I used on my command line:
+Due to some missing configuration, I faced a problem where some required system variables have not been properly set, so I had to set them manually. Those are the shell commands I used on my command line:
 ```sh
 set DOCKER_HOST=tcp://192.168.99.100:2376
 set DOCKER_MACHINE_NAME=default

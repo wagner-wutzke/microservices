@@ -6,7 +6,7 @@ This source code is an implementation example of a simple microservices distribu
 
 In this example we have an Eureka services registry _discovery_, which is registers the _service_ and _client_ services. It can be viewed under 
 ```
-http://[docker_host_ip]:8761.
+http://[docker_host_ip]:8761/
 ```
 
 The _service_ service provides a REST endpoint, which returns a simple string as response. Its URL is

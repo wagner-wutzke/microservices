@@ -1,0 +1,15 @@
+/client/.classpath
+/client/.project
+/client/.settings/org.eclipse.core.resources.prefs
+/client/.settings/org.eclipse.jdt.core.prefs
+/client/.settings/org.eclipse.m2e.core.prefs
+/client/.settings
+/client/target
+/discovery/target
+/discovery/.settings
+/discovery/.classpath
+/discovery/.project
+/service/.settings
+/service/target
+/service/.classpath
+/service/.project

@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: service
+    
+server:
+  port: 8880
+
+eureka:
+  instance:
+    nonSecurePort: 8880
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+ribbon:
+  eureka:
+    enabled: true

@@ -38,7 +38,7 @@ set DOCKER_TLS_VERIFY=1
 set DOCKER_TOOLBOX_INSTALL_PATH=C:\Program Files\Docker Toolbox
 set DOCKER_CERT_PATH=C:\Users\Admin\.docker\machine\machines\default
 ```
-After setting these system variables, I have been able to build the project jar file and build a new Docker image (within the Docker Host) with the following maven comand from command line (in the project's directory):
+After setting these system variables, I have been able to build the project jar file and build a new Docker image (within the Docker Host) with the following maven comand from command line (in each project's directory):
 ```sh
 mvn clean package docker:build
 ```

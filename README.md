@@ -9,7 +9,7 @@ This is an example of a simple microservices distributed system, which consists 
 - service: producer service. It provides a REST endpointm which is being called by the consumer service.
 - client: consumer service. It also provides a REST endpoint for testing purpose.
 
-Doscovery endpoint: 
+Discovery endpoint: 
 ```
 http://[docker_host_ip]:8761/
 ```

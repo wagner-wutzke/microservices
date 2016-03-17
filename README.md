@@ -23,7 +23,7 @@ Client endpoint:
 ```
 http://[docker_host_ip]:8890/client
 ```
-Calling this URL makes this service to make a discovery call to the _discovery_ service, find out which is the ip of the _service_ service and then, call its endpoint, returning its response. Since there might be more than one service registered with the same id / name, the registry works also as a Load Balancer.
+Calling this URL makes this service to make a discovery call to the _service_ service and then, returning its response. Since there might be more than one service registered with the same id / name, the service will be load balanced as described in the spring.io Blog entry.
 
 
 ## Building the containers with the Docker Maven Plugin
@@ -64,6 +64,7 @@ After setting these system variables, I have been able to build the project jar 
 mvn clean package docker:build
 ```
 
+
 ## Running the docker containers
 There are two possibilities to start the containers. First one is to use a Docker Compose file for starting all three containers together and linking them properly. The second one is to start every single one manualy with a docker command.
 
@@ -81,6 +82,15 @@ docker run -d -p 8890:8890 --link discovery:discovery --name client apexitsystem
 ```
 
 Note that the discovery container is registering its hostname "-h discovery", so the other services can find it.
+
+
+## Testing the services
+About one minute after starting the 3 containers, it ispossible to see the registered services under http://[docker_host_ip]:8761/.
+Calling the _client_ service endpoint on a webbrowser should show the following message
+```
+The client received this response from service: Hello! This is the response from the service. It is working :)
+```
+
 
 ## Helpful Docker commands
 - Run docker bash

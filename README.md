@@ -27,8 +27,9 @@ Calling this URL makes this service to make a discovery call to the _service_ se
 
 
 ## Building the containers with the Docker Maven Plugin
+In order to build the Docker image, the Docker Machine must be running and connected to the Docker Host. I installed [Docker Toolbox][toolbox] in my Windows 10 machine.
+
 The Docker Maven Plugin makes ones life easier, when changes in the service implementation are made constantly and re-build the docker image has to be done several times.
-In order to build the Docker image, the Docker Machine must be running and connected to the Docker Host.
 
 The Docker Maven Plugin needs a Dockerfile file within each microservice project.
 This is one plugin configuration I used:
@@ -118,3 +119,5 @@ docker rm $(docker ps -a -q)
 ```sh
 docker rmi $(docker images -q -f dangling=true)
 ```
+
+[toolbox]: <https://www.docker.com/products/overview#/docker_toolbox>

@@ -6,7 +6,7 @@ This source code is an implementation example of a simple microservices distribu
 
 
 ## Building the containers with the Docker Maven Plugin
-The Docker Maven Plugin makes the life easier, when one has to constantly change the service implementation and re-build the docker image.
+The Docker Maven Plugin makes ones life easier, when changes in the service implementation are made constantly and re-build the docker image has to be done several times.
 In order to build the Docker image, the Docker Machine must be running and connected to the Docker Host.
 
 The Docker Maven Plugin needs a Dockerfile file within each microservice project.
@@ -30,13 +30,17 @@ This is one plugin configuration I used:
 	        </plugin>
 ```
 
-I work on a Windows 10 machine with VirtualBox. I faced the problem that some required system variables weren't properly set, so I had to set them manually. Those are the shell commands I used on my PC:
+I work on a Windows 10 machine with VirtualBox. Due to this configuration, I faced a problem where some required system variables have not been properly set, so I had to set them manually. Those are the shell commands I used on my command line:
 ```sh
 set DOCKER_HOST=tcp://192.168.99.100:2376
 set DOCKER_MACHINE_NAME=default
 set DOCKER_TLS_VERIFY=1
 set DOCKER_TOOLBOX_INSTALL_PATH=C:\Program Files\Docker Toolbox
 set DOCKER_CERT_PATH=C:\Users\Admin\.docker\machine\machines\default
+```
+After setting these system variables, I have been able to build the project jar file and build a new Docker image (within the Docker Host) with the following maven comand from command line (in the project's directory):
+```sh
+mvn clean package docker:build
 ```
 
 ## Helpful Docker commands

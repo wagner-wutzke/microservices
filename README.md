@@ -1,13 +1,13 @@
 # Microservices Demo
 
-Demo microservice application based on [Microservices Blog](https://spring.io/blog/2015/07/14/microservices-with-spring) on the spring.io website.
+This is a demo microservice project based on [Microservices Blog](https://spring.io/blog/2015/07/14/microservices-with-spring) on the spring.io website.
 
-This is an example of a simple microservices distributed system, which consists of a service, a client and a discovery service (Netflix Eureka), each deployed as a Docker container in one single Host.
+This example builds a simple microservice based distributed system, which consists of a service, a client and a discovery service (Netflix Eureka). Each of those services are deployed as a Docker container in one single Host.
 
 ### Components
-- discovery: registration, discovery service. 
-- service: producer service. It provides a REST endpointm which is being called by the consumer service.
-- client: consumer service. It also provides a REST endpoint for testing purpose.
+- **discovery**: registration, discovery service. 
+- **service**: producer service. It provides a REST endpointm which is being called by the consumer service.
+- **client**: consumer service. It also provides a REST endpoint for testing purpose.
 
 Discovery endpoint: 
 ```

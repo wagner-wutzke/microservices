@@ -4,6 +4,10 @@ Demo application based on [Microservices Blog](https://spring.io/blog/2015/07/14
 
 This source code is an implementation example of a simple microservices distributed system. It consists of a service, a client and a discovery service (Netflix Eureka), each deployed as a Docker container in one single Host.
 
+In this example we have an Eureka services registry _discovery_, which is registers the _service_ and _client_ services. It can be viewed under http://[docker_host_ip]:8761.
+The _service_ service provides a REST endpoint http://[docker_host_ip]:8880/service, which returns a simple string as response.
+The _client_ service also provides a REST endpoint http://[docker_host_ip]:8890/client. Calling this URL makes this service to make a discovery call to the _discovery_ service, find out which is the ip of the _service_ service and then, call its endpoint, returning its response.
+The 
 
 ## Building the containers with the Docker Maven Plugin
 The Docker Maven Plugin makes ones life easier, when changes in the service implementation are made constantly and re-build the docker image has to be done several times.
@@ -44,7 +48,7 @@ mvn clean package docker:build
 ```
 
 ## Running the docker containers
-There are two possibilities to start the containers. First one is to use a Docker Compose file for starting all three services together and linking them. The second one is to start every single one manualy with a docker command.
+There are two possibilities to start the containers. First one is to use a Docker Compose file for starting all three containers together and linking them properly. The second one is to start every single one manualy with a docker command.
 
 For the second approach, here are the Docker commands:
 ```sh

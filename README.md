@@ -48,16 +48,18 @@ There are two possibilities to start the containers. First one is to use a Docke
 
 For the second approach, here are the Docker commands:
 ```sh
+# Discovery container
 docker run -d -p 8761:8761 -h discovery --name discovery apexitsystems/discovery
 
 # Service container - it is being replicated
 docker run -d -p 8880:8880 --link discovery:discovery --name service-1 apexitsystems/service
 docker run -d -p 8881:8880 --link discovery:discovery --name service-2 apexitsystems/service
 
-# Client container - it is being replicated
+# Client container
 docker run -d -p 8890:8890 --link discovery:discovery service:service --name client apexitsystems/client-1
-docker run -d -p 8891:8890 --link discovery:discovery service:service --name client apexitsystems/client-2
 ```
+
+Note that the discovery container is registering its hostname "-h discovery", so the other services can find it.
 
 ## Helpful Docker commands
 - Run docker bash

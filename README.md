@@ -1,28 +1,30 @@
 # Microservices Demo
 
-Demo application based on [Microservices Blog](https://spring.io/blog/2015/07/14/microservices-with-spring) on the spring.io website.
+Demo microservice application based on [Microservices Blog](https://spring.io/blog/2015/07/14/microservices-with-spring) on the spring.io website.
 
-This source code is an implementation example of a simple microservices distributed system. It consists of a service, a client and a discovery service (Netflix Eureka), each deployed as a Docker container in one single Host.
+This is an example of a simple microservices distributed system, which consists of a service, a client and a discovery service (Netflix Eureka), each deployed as a Docker container in one single Host.
 
-In this example we have an Eureka services registry _discovery_, which is registers the _service_ and _client_ services. It can be viewed under 
+### Components
+- discovery: registration, discovery service. 
+- service: producer service. It provides a REST endpointm which is being called by the consumer service.
+- client: consumer service. It also provides a REST endpoint for testing purpose.
+
+Doscovery endpoint: 
 ```
 http://[docker_host_ip]:8761/
 ```
 
-The _service_ service provides a REST endpoint, which returns a simple string as response. Its URL is
+Service endpoint:
 ```
 http://[docker_host_ip]:8880/service
 ```
 
-The _client_ service also provides a REST endpoint for testing. 
-Its URL is
+Client endpoint:
 ```
 http://[docker_host_ip]:8890/client
 ```
-Calling this URL makes this service to make a discovery call to the _discovery_ service, find out which is the ip of the _service_ service and then, call its endpoint, returning its response.
+Calling this URL makes this service to make a discovery call to the _discovery_ service, find out which is the ip of the _service_ service and then, call its endpoint, returning its response. Since there might be more than one service registered with the same id / name, the registry works also as a Load Balancer.
 
-
-The discovery services can also work as a Load Balancer, when more than one service is registered with the same id / name.
 
 ## Building the containers with the Docker Maven Plugin
 The Docker Maven Plugin makes ones life easier, when changes in the service implementation are made constantly and re-build the docker image has to be done several times.

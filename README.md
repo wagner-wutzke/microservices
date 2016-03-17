@@ -86,7 +86,8 @@ Note that the discovery container is registering its hostname "-h discovery", so
 
 ## Testing the services
 About one minute after starting the 3 containers, it ispossible to see the registered services under http://[docker_host_ip]:8761/.
-Calling the _client_ service endpoint on a webbrowser should show the following message
+
+Calling the _client_ service endpoint http://[docker_host_ip]:8890/client on a webbrowser should show the following message
 ```
 The client received this response from service: Hello! This is the response from the service. It is working :)
 ```

@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class ClientScheduledTask {
 	
+	private static final String SERVICE_NAME = "SERVICE";
+
 	private static final Logger LOG = LoggerFactory.getLogger(ClientScheduledTask.class);
 	
 	@Autowired
@@ -19,7 +21,7 @@ public class ClientScheduledTask {
 	
 	@Scheduled(fixedDelay=10000)
 	public void callService() {
-		String url = "http://SERVICE" + "/service";
+		String url = "http://" + SERVICE_NAME + "/service";
 		String response = restTemplate.getForObject(url, String.class);
 		LOG.info("This is the response from the service: [{}]", response);
 	}

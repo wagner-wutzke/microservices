@@ -7,7 +7,7 @@ server:
 
 eureka:
   instance:
-    nonSecurePort: 8888
+    nonSecurePort: 8890
     preferIpAddress: true
   client:
     serviceUrl:
@@ -16,3 +16,7 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+    
+logging:
+  level:
+    com.netflix.discovery: 'WARN'

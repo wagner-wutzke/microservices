@@ -1,0 +1,22 @@
+client:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: wagnerwutzke/client
+  links:
+  - discovery:discovery
+  stdin_open: true
+service:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: wagnerwutzke/service
+  links:
+  - discovery:discovery
+  stdin_open: true
+discovery:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: wagnerwutzke/discovery
+  stdin_open: true

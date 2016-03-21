@@ -25,5 +25,5 @@ public class ClientScheduledTask {
 		String response = restTemplate.getForObject(url, String.class);
 		LOG.info("This is the response from the service: [{}]", response);
 	}
-
+	
 }

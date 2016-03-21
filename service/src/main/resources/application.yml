@@ -16,3 +16,7 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+    
+logging:
+  level:
+    com.netflix.discovery: 'WARN'

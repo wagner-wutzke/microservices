@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM iron/java:1.8
 VOLUME /tmp
 ADD service-0.0.1.jar /app.jar
 RUN sh -c 'touch /app.jar'
